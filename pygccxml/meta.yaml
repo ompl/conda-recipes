@@ -1,0 +1,19 @@
+{% set name = "pygccxml" %}
+{% set version = "2.2.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: "https://github.com/CastXML/pygccxml.git"
+  git_rev: "v{{ version }}"
+
+requirements:
+  build:
+    - python {{ python }}
+    - setuptools
+
+  run:
+    - python {{ python }}
+    - castxml

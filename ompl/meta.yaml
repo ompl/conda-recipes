@@ -1,0 +1,36 @@
+{% set name = "ompl" %}
+{% set version = "1.6.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: "https://github.com/ompl/ompl.git"
+  git_rev: "main"
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - git-lfs
+    - pkg-config
+  host:
+    - boost
+    - eigen
+    - flann
+    - libode
+    - numpy
+    - pygccxml
+    - pyplusplus
+    - python {{ python }}
+  run:
+    - boost
+    - boost-cpp
+    - numpy
+    - python {{ python }}

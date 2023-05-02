@@ -1,0 +1,43 @@
+{% set name = "pyplusplus" %}
+{% set version = "1.8.5" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyplusplus-{{ version }}.tar.gz
+  sha256: 06b5d3c80d0384f736e36df6968336ee3b8adaae5bf76d353fa35253e39e4b76
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python {{ python }}
+    - pip
+  run:
+    - python {{ python }}
+    - pygccxml
+
+test:
+  imports:
+    - pyplusplus
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/ompl/pyplusplus
+  summary: Py++ is a framework of components for creating a C++ code generator using the Boost.Python library
+  license: BSL-1.0
+  license_file:
+    - pyplusplus/code_creators/license.py
+    - contrib/pypp_api/license.txt
+
+extra:
+  recipe-maintainers:
+    - wbthomason

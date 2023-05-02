@@ -1,0 +1,28 @@
+{% set name = "castxml" %}
+{% set version = "0.6.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: "https://github.com/CastXML/CastXML.git"
+  git_rev: "v{{ version }}"
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+  host:
+    - clangdev
+    - libclang
+    - llvmdev
+    - zlib
+    - libclang-cpp
+  run:
+    - libclang-cpp
