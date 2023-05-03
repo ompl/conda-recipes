@@ -8,4 +8,4 @@ To build OMPL, either:
 2. Run the `build.sh` script, which will install `conda-build`, `conda-verify`, and `boa` (for `mambabuild`) into your `base` `conda` environment, then run the build command for you
 
 # Disclaimer
-These recipes are not officially supported or maintained by OMPL. Issues and PRs are welcome, but may not receive quick responses. The recipes have only been tested on Linux.
+These recipes **are not officially supported or maintained** by OMPL. Issues and PRs are welcome, but may not receive quick responses. The recipes have only been tested on Linux. This repository is provided for testing purposes only.
